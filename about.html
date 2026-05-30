@@ -368,7 +368,14 @@ footer {
   .about-cta { padding: 72px 24px; }
 }
 
-/* ─── HAMBURGER BUTTON (mobile only) ─── */
+/* ─── PREVENT HORIZONTAL SCROLL ─── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
+}
+
+/* ─── HAMBURGER BUTTON ─── */
 .nav-hamburger {
   display: none;
   flex-direction: column;
@@ -379,6 +386,7 @@ footer {
   border: none;
   cursor: pointer;
   padding: 0;
+  position: relative;
   z-index: 10002;
 }
 .nav-hamburger span {
@@ -407,39 +415,57 @@ footer {
 
 /* ─── MOBILE NAV (≤768px) ─── */
 @media (max-width: 768px) {
+  /* CRITICAL: nav has backdrop-filter which creates a containing block for
+     position:fixed descendants. That clips .nav-links to nav's tiny height.
+     Removing it on mobile restores normal viewport-fixed positioning. */
+  nav {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 14px 20px;
+  }
+
   .nav-hamburger { display: flex; }
 
-  nav { padding: 14px 20px; }
-
   .nav-links {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: min(78vw, 320px);
-    background: var(--cream);
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-    padding: 88px 32px 48px;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: auto !important;
+    width: min(78vw, 320px) !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: var(--cream) !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    padding: 88px 32px 48px !important;
+    margin: 0 !important;
+    list-style: none !important;
     transform: translateX(100%);
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 10001;
     box-shadow: -8px 0 32px rgba(26,26,26,0.12);
     border-left: 1px solid rgba(184,150,12,0.18);
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
-  .nav-links.is-open { transform: translateX(0); }
+  .nav-links.is-open { transform: translateX(0) !important; }
+
   .nav-links li {
-    width: 100%;
+    display: block !important;
+    width: 100% !important;
     border-bottom: 1px solid rgba(184,150,12,0.15);
   }
   .nav-links li:last-child { border-bottom: none; }
+
   .nav-links a {
-    display: block;
-    padding: 18px 0;
-    font-size: 0.82rem;
-    letter-spacing: 0.22em;
+    display: block !important;
+    padding: 18px 0 !important;
+    font-size: 0.82rem !important;
+    letter-spacing: 0.22em !important;
+    color: var(--charcoal) !important;
+    text-decoration: none !important;
   }
 
   .nav-logo { font-size: 1.4rem; }
