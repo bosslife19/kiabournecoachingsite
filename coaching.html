@@ -201,7 +201,7 @@ html, body { overflow-x: hidden; max-width: 100%; width: 100%; }
 .nav-overlay { display:none; position:fixed; inset:0; background:rgba(26,26,26,0.45); z-index:10000; opacity:0; transition:opacity 0.3s ease; }
 .nav-overlay.is-open { display: block; opacity: 1; }
 @media (max-width: 768px) {
-  nav { backdrop-filter:none !important; -webkit-backdrop-filter:none !important; padding:14px 20px; }
+  nav { backdrop-filter:none !important; -webkit-backdrop-filter:none !important; padding:14px 20px; z-index:10001; }
   .nav-hamburger { display: flex; }
   .nav-links {
     position:fixed !important; top:0 !important; right:0 !important; bottom:0 !important; left:auto !important;
