@@ -1030,8 +1030,18 @@ faders.forEach(el => observer.observe(el));
     if (e.key === 'Escape') closeMenu();
   });
   menu.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      if (window.innerWidth <= 768) closeMenu();
+    a.addEventListener('click', function(e) {
+      if (window.innerWidth > 768) return;
+      var href = a.getAttribute('href') || '';
+      // Same-page anchor (e.g. #newsletter): close and let it scroll.
+      if (href.charAt(0) === '#') { closeMenu(); return; }
+      // New tab or empty link: let the browser handle it.
+      if (a.target === '_blank' || !href) { closeMenu(); return; }
+      // Link to another page: navigate explicitly so sliding the menu
+      // closed can't cancel the tap on mobile.
+      e.preventDefault();
+      closeMenu();
+      window.location.href = href;
     });
   });
   window.addEventListener('resize', function() {

@@ -521,7 +521,15 @@ faders.forEach(el => observer.observe(el));
   if (overlay) overlay.addEventListener('click', closeMenu);
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
   menu.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() { if (window.innerWidth <= 768) closeMenu(); });
+    a.addEventListener('click', function(e) {
+      if (window.innerWidth > 768) return;
+      var href = a.getAttribute('href') || '';
+      if (href.charAt(0) === '#') { closeMenu(); return; }
+      if (a.target === '_blank' || !href) { closeMenu(); return; }
+      e.preventDefault();
+      closeMenu();
+      window.location.href = href;
+    });
   });
   window.addEventListener('resize', function() {
     if (window.innerWidth > 768 && menu.classList.contains('is-open')) closeMenu();
