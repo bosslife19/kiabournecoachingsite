@@ -10,7 +10,7 @@
 :root {
   --gold: #B8960C; --gold-light: #D4AF37; --charcoal: #1A1A1A;
   --charcoal-mid: #2C2C2C; --cream: #FAF6EF; --beige: #EDE4D3;
-  --rust: #8B3A2A; --text-body: #3A3228;
+  --rust: #8B3A2A; --text-body: #3A3228; --white:#FFFFFF;
   --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Jost', sans-serif;
 }
@@ -31,111 +31,78 @@ nav {
 .gold-line { height:1px; background:linear-gradient(90deg,transparent,var(--gold),var(--gold-light),var(--gold),transparent); }
 
 /* PAGE LAYOUT */
-.form-page {
-  display:grid; grid-template-columns:1fr 1fr; min-height:calc(100vh - 60px);
-}
-.form-sidebar {
-  background:var(--charcoal); position:sticky; top:60px;
-  height:calc(100vh - 60px); overflow:hidden; display:flex; flex-direction:column;
-}
-.form-sidebar-image {
-  flex:1; position:relative; overflow:hidden;
-}
+.form-page { display:grid; grid-template-columns:1fr 1fr; min-height:calc(100vh - 60px); }
+.form-sidebar { background:var(--charcoal); position:sticky; top:60px; height:calc(100vh - 60px); overflow:hidden; display:flex; flex-direction:column; }
+.form-sidebar-image { flex:1; position:relative; overflow:hidden; }
 .form-sidebar-image img { width:100%; height:100%; object-fit:cover; object-position:center top; display:block; filter:grayscale(20%); opacity:0.8; }
-.form-sidebar-image::after {
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(to top, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.4) 50%, transparent 100%);
-}
-.form-sidebar-content {
-  position:absolute; bottom:0; left:0; right:0;
-  padding:48px 48px 40px; z-index:2;
-}
-.sidebar-tag {
-  font-size:0.62rem; letter-spacing:0.3em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:16px; font-weight:500;
-}
-.sidebar-title {
-  font-family:var(--font-display); font-size:clamp(1.8rem,2.5vw,2.8rem);
-  font-weight:300; color:var(--cream); line-height:1.2; margin-bottom:16px;
-}
+.form-sidebar-image::after { content:''; position:absolute; inset:0; background:linear-gradient(to top, rgba(26,26,26,0.95) 0%, rgba(26,26,26,0.4) 50%, transparent 100%); }
+.form-sidebar-content { position:absolute; bottom:0; left:0; right:0; padding:48px 48px 40px; z-index:2; }
+.sidebar-tag { font-size:0.62rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; font-weight:500; }
+.sidebar-title { font-family:var(--font-display); font-size:clamp(1.8rem,2.5vw,2.8rem); font-weight:300; color:var(--cream); line-height:1.2; margin-bottom:16px; }
 .sidebar-title em { font-style:italic; color:var(--gold-light); }
-.sidebar-quote {
-  font-family:var(--font-display); font-size:0.95rem; font-style:italic;
-  color:rgba(250,246,239,0.6); line-height:1.6; border-left:2px solid var(--gold); padding-left:16px;
-  margin-top:20px;
-}
+.sidebar-quote { font-family:var(--font-display); font-size:0.95rem; font-style:italic; color:rgba(250,246,239,0.6); line-height:1.6; border-left:2px solid var(--gold); padding-left:16px; margin-top:20px; }
 
 /* FORM AREA */
-.form-area {
-  background:var(--cream); padding:72px 64px;
-  overflow-y:auto;
-}
-.form-header { margin-bottom:48px; }
-.form-eyebrow {
-  font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase;
-  color:var(--gold); margin-bottom:12px; font-weight:500;
-}
-.form-title {
-  font-family:var(--font-display); font-size:clamp(1.8rem,2.5vw,2.6rem);
-  font-weight:300; color:var(--charcoal); line-height:1.2; margin-bottom:12px;
-}
+.form-area { background:var(--cream); padding:72px 64px; overflow-y:auto; }
+.form-header { margin-bottom:40px; }
+.form-eyebrow { font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; font-weight:500; }
+.form-title { font-family:var(--font-display); font-size:clamp(1.8rem,2.5vw,2.6rem); font-weight:300; color:var(--charcoal); line-height:1.2; margin-bottom:12px; }
 .form-title em { font-style:italic; color:var(--rust); }
 .form-subtitle { font-size:0.93rem; color:#6b5d4f; line-height:1.75; }
 
 /* FORM TABS */
-.form-tabs { display:flex; gap:0; margin-bottom:40px; border-bottom:1px solid rgba(184,150,12,0.2); }
-.form-tab {
-  flex:1; padding:14px 20px; text-align:center; cursor:pointer;
-  font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; font-weight:500;
-  color:#8a7a6a; border-bottom:2px solid transparent;
-  transition:all 0.3s; background:none; border-top:none; border-left:none; border-right:none;
-}
+.form-tabs { display:flex; flex-wrap:wrap; gap:0; margin-bottom:40px; border-bottom:1px solid rgba(184,150,12,0.2); }
+.form-tab { flex:1; min-width:120px; padding:14px 10px; text-align:center; cursor:pointer; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:600; color:#8a7a6a; border-bottom:2px solid transparent; transition:all 0.3s; background:none; border-top:none; border-left:none; border-right:none; }
 .form-tab.active { color:var(--gold); border-bottom-color:var(--gold); }
+
+/* PANEL INTRO */
+.form-intro { margin-bottom:32px; }
+.panel-title { font-family:var(--font-display); font-size:clamp(1.5rem,2.2vw,2rem); font-weight:300; color:var(--charcoal); line-height:1.25; margin-bottom:10px; }
+.panel-subtitle { font-family:var(--font-display); font-size:1.05rem; font-style:italic; color:var(--rust); line-height:1.5; margin-bottom:16px; }
+.panel-text { font-size:0.93rem; color:#6b5d4f; line-height:1.75; margin-bottom:10px; }
+
+/* FORM SECTION TITLE */
+.form-section-title { font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:600; margin:38px 0 20px; padding-bottom:8px; border-bottom:1px solid rgba(184,150,12,0.2); }
 
 /* FORM FIELDS */
 .form-group { margin-bottom:28px; }
-.form-label {
-  display:block; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase;
-  color:var(--charcoal); margin-bottom:8px; font-weight:500;
-}
+.form-label { display:block; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--charcoal); margin-bottom:8px; font-weight:500; line-height:1.5; }
 .form-label span { color:var(--gold); margin-left:2px; }
-.form-input, .form-select, .form-textarea {
-  width:100%; padding:14px 18px;
-  background:var(--white); border:1px solid rgba(184,150,12,0.25);
-  color:var(--charcoal); font-family:var(--font-body); font-size:0.93rem;
-  outline:none; transition:border-color 0.2s;
-  -webkit-appearance:none;
-}
+.form-input, .form-select, .form-textarea { width:100%; padding:14px 18px; background:var(--white); border:1px solid rgba(184,150,12,0.25); color:var(--charcoal); font-family:var(--font-body); font-size:0.93rem; outline:none; transition:border-color 0.2s; -webkit-appearance:none; }
 .form-input:focus, .form-select:focus, .form-textarea:focus { border-color:var(--gold); }
 .form-textarea { min-height:120px; resize:vertical; }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
 .form-select { cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B8960C' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 16px center; padding-right:40px; }
 .checkbox-group { display:flex; flex-direction:column; gap:12px; }
 .checkbox-item { display:flex; align-items:flex-start; gap:12px; cursor:pointer; }
-.checkbox-item input[type=checkbox] { appearance:none; width:18px; height:18px; border:1px solid rgba(184,150,12,0.4); background:var(--white); cursor:pointer; flex-shrink:0; margin-top:2px; position:relative; transition:all 0.2s; }
+.checkbox-item input[type=checkbox] { appearance:none; -webkit-appearance:none; width:18px; height:18px; border:1px solid rgba(184,150,12,0.4); background:var(--white); cursor:pointer; flex-shrink:0; margin-top:2px; position:relative; transition:all 0.2s; }
 .checkbox-item input[type=checkbox]:checked { background:var(--gold); border-color:var(--gold); }
 .checkbox-item input[type=checkbox]:checked::after { content:'✓'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:var(--charcoal); font-size:11px; font-weight:700; }
+.checkbox-item input[type=radio] { appearance:none; -webkit-appearance:none; width:18px; height:18px; border:1px solid rgba(184,150,12,0.4); background:var(--white); cursor:pointer; flex-shrink:0; margin-top:2px; position:relative; transition:all 0.2s; border-radius:50%; }
+.checkbox-item input[type=radio]:checked { border-color:var(--gold); }
+.checkbox-item input[type=radio]:checked::after { content:''; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:9px; height:9px; border-radius:50%; background:var(--gold); }
 .checkbox-label { font-size:0.9rem; color:var(--text-body); line-height:1.5; }
 .form-note { font-size:0.78rem; color:#9a8a7a; margin-top:6px; font-style:italic; }
-.submit-btn {
-  width:100%; background:var(--gold); color:var(--charcoal);
-  border:none; padding:18px 32px; cursor:pointer;
-  font-family:var(--font-body); font-size:0.7rem; letter-spacing:0.22em;
-  text-transform:uppercase; font-weight:600; transition:all 0.3s;
-  position:relative; overflow:hidden; margin-top:8px;
-}
+
+/* COMMITMENT BOX */
+.commitment-box { background:rgba(184,150,12,0.06); border-left:3px solid var(--gold); padding:24px 28px; margin-bottom:24px; }
+.commitment-box p { font-size:0.92rem; color:var(--text-body); line-height:1.7; margin-bottom:16px; }
+.commitment-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.commitment-list li { display:flex; gap:12px; align-items:flex-start; font-size:0.92rem; color:var(--text-body); line-height:1.5; }
+.commitment-list li::before { content:'✓'; color:var(--gold); font-weight:700; flex-shrink:0; }
+
+.submit-btn { width:100%; background:var(--gold); color:var(--charcoal); border:none; padding:18px 32px; cursor:pointer; font-family:var(--font-body); font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; font-weight:600; transition:all 0.3s; position:relative; overflow:hidden; margin-top:8px; }
 .submit-btn::after { content:''; position:absolute; inset:0; background:var(--rust); transform:translateX(-100%); transition:transform 0.3s ease; z-index:0; }
 .submit-btn:hover::after { transform:translateX(0); }
 .submit-btn span { position:relative; z-index:1; }
-.submit-note { text-align:center; font-size:0.78rem; color:#9a8a7a; margin-top:16px; }
+.submit-note { text-align:center; font-size:0.78rem; color:#9a8a7a; margin-top:16px; line-height:1.6; }
 
 /* SUCCESS STATE */
-.success-msg {
-  display:none; text-align:center; padding:48px 24px;
-}
+.success-msg { display:none; text-align:center; padding:48px 24px; }
 .success-icon { font-family:var(--font-display); font-size:4rem; color:var(--gold); margin-bottom:20px; }
 .success-title { font-family:var(--font-display); font-size:2rem; font-weight:300; color:var(--charcoal); margin-bottom:12px; }
 .success-body { font-size:0.93rem; color:#6b5d4f; line-height:1.75; }
+.success-body em { color:var(--rust); font-style:italic; }
 
 /* FORM PANEL */
 .form-panel { display:none; }
@@ -155,120 +122,44 @@ footer { background:var(--charcoal); color:rgba(250,246,239,0.5); padding:40px 4
   .form-row { grid-template-columns:1fr; gap:20px; }
 }
 
-/* ─── PREVENT HORIZONTAL SCROLL ─── */
-html, body {
-  overflow-x: hidden;
-  max-width: 100%;
-  width: 100%;
-}
+html, body { overflow-x: hidden; max-width: 100%; width: 100%; }
 
-/* ─── HAMBURGER BUTTON ─── */
-.nav-hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 26px;
-  height: 19px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  position: relative;
-  z-index: 10002;
-}
-.nav-hamburger span {
-  display: block;
-  height: 2px;
-  width: 100%;
-  background: var(--charcoal);
-  border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  transform-origin: center;
-}
+.nav-hamburger { display:none; flex-direction:column; justify-content:space-between; width:26px; height:19px; background:none; border:none; cursor:pointer; padding:0; position:relative; z-index:10002; }
+.nav-hamburger span { display:block; height:2px; width:100%; background:var(--charcoal); border-radius:2px; transition:transform 0.3s ease, opacity 0.3s ease; transform-origin:center; }
 .nav-hamburger.is-open span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
 .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
 .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+.nav-overlay { display:none; position:fixed; inset:0; background:rgba(26,26,26,0.45); z-index:10000; opacity:0; transition:opacity 0.3s ease; }
+.nav-overlay.is-open { display:block; opacity:1; }
 
-.nav-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(26,26,26,0.45);
-  z-index: 10000;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.nav-overlay.is-open { display: block; opacity: 1; }
-
-/* ─── MOBILE NAV (≤768px) ─── */
 @media (max-width: 768px) {
-  /* CRITICAL: nav has backdrop-filter which creates a containing block for
-     position:fixed descendants. That clips .nav-links to nav's tiny height.
-     Removing it on mobile restores normal viewport-fixed positioning. */
   nav {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
     padding: 14px 20px;
     z-index: 10001; /* lift nav (and the menu inside it) above the overlay */
   }
-
   .nav-hamburger { display: flex; }
-
   .nav-links {
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: auto !important;
-    width: min(78vw, 320px) !important;
-    height: 100vh !important;
-    height: 100dvh !important;
-    background: var(--cream) !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 0 !important;
-    padding: 88px 32px 48px !important;
-    margin: 0 !important;
-    list-style: none !important;
-    transform: translateX(100%);
-    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 10001;
-    box-shadow: -8px 0 32px rgba(26,26,26,0.12);
-    border-left: 1px solid rgba(184,150,12,0.18);
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
+    position: fixed !important; top: 0 !important; right: 0 !important; bottom: 0 !important; left: auto !important;
+    width: min(78vw, 320px) !important; height: 100vh !important; height: 100dvh !important;
+    background: var(--cream) !important; flex-direction: column !important; align-items: stretch !important;
+    gap: 0 !important; padding: 88px 32px 48px !important; margin: 0 !important; list-style: none !important;
+    transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10001; box-shadow: -8px 0 32px rgba(26,26,26,0.12); border-left: 1px solid rgba(184,150,12,0.18);
+    overflow-y: auto; -webkit-overflow-scrolling: touch;
   }
   .nav-links.is-open { transform: translateX(0) !important; }
-
-  .nav-links li {
-    display: block !important;
-    width: 100% !important;
-    border-bottom: 1px solid rgba(184,150,12,0.15);
-  }
+  .nav-links li { display: block !important; width: 100% !important; border-bottom: 1px solid rgba(184,150,12,0.15); }
   .nav-links li:last-child { border-bottom: none; }
-
-  .nav-links a {
-    display: block !important;
-    padding: 18px 0 !important;
-    font-size: 0.82rem !important;
-    letter-spacing: 0.22em !important;
-    color: var(--charcoal) !important;
-    text-decoration: none !important;
-  }
-
+  .nav-links a { display: block !important; padding: 18px 0 !important; font-size: 0.82rem !important; letter-spacing: 0.22em !important; color: var(--charcoal) !important; text-decoration: none !important; }
   .nav-logo { font-size: 1.4rem; }
 }
 
-/* ─── PHONE TWEAKS (≤600px) ─── */
 @media (max-width: 600px) {
-  section { padding: 48px 20px; }
-  .hero-content-col, .about-content, .coaching-content { padding: 48px 22px; }
-  .hero-title { font-size: clamp(2rem, 8vw, 2.6rem); }
-  .btn-outline { margin-left: 0; margin-top: 14px; display: inline-block; }
-  .btn-primary, .btn-outline { padding: 14px 28px; }
-  .announcement-bar { font-size: 0.65rem; padding: 9px 14px; }
+  .form-area { padding: 40px 18px; }
+  .form-tab { font-size:0.58rem; padding:12px 6px; }
 }
-
 </style>
 </head>
 <body>
@@ -310,103 +201,204 @@ html, body {
       <p class="form-eyebrow">Step Into Your Next Season</p>
       <h1 class="form-title">Express Your <em>Interest</em></h1>
       <p class="form-subtitle">
-        Select the form that best fits where you are. Every submission is read personally. Getting to know you matters.
+        Choose the path that best fits where you are. Every submission is read personally. Getting to know you matters.
       </p>
     </div>
 
     <!-- TABS -->
     <div class="form-tabs">
-      <button class="form-tab active" onclick="switchTab('coaching')">Kingdom Coaching</button>
-      <button class="form-tab" onclick="switchTab('speaking')">Speaking Request</button>
+      <button class="form-tab active" data-tab="cohort" onclick="switchTab('cohort', this)">Foundational Cohort</button>
+      <button class="form-tab" data-tab="journey" onclick="switchTab('journey', this)">12-Week Journey</button>
+      <button class="form-tab" data-tab="speaking" onclick="switchTab('speaking', this)">Speaking Request</button>
     </div>
 
-    <!-- COACHING FORM -->
-    <div class="form-panel active" id="panel-coaching">
-      <div id="coaching-form-wrap">
+    <!-- COHORT APPLICATION -->
+    <div class="form-panel active" id="panel-cohort">
+      <div id="cohort-form-wrap">
+        <div class="form-intro">
+          <h2 class="panel-title">Foundational Cohort Experience Application</h2>
+          <p class="panel-subtitle">A 4-Week Small Group Journey to Create Space for What God Is Doing Now</p>
+          <p class="panel-text">Thank you for your interest in joining The Gift of Now Foundational Cohort. This small group experience is designed to help believers slow down, create sacred space, identify what may be keeping them stuck, and begin partnering with what God is doing now.</p>
+          <p class="panel-text" style="font-style:italic;">Please complete the form below prayerfully and honestly.</p>
+        </div>
+
+        <p class="form-section-title">Personal Information</p>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">First Name <span>*</span></label>
-            <input type="text" class="form-input" placeholder="Your first name" id="c-firstname">
+            <label class="form-label">Full Name <span>*</span></label>
+            <input type="text" class="form-input" id="co-name" placeholder="Your full name">
           </div>
           <div class="form-group">
-            <label class="form-label">Last Name <span>*</span></label>
-            <input type="text" class="form-input" placeholder="Your last name" id="c-lastname">
+            <label class="form-label">Email Address <span>*</span></label>
+            <input type="email" class="form-input" id="co-email" placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input type="tel" class="form-input" id="co-phone" placeholder="+1 (000) 000-0000">
+          </div>
+          <div class="form-group">
+            <label class="form-label">City / State</label>
+            <input type="text" class="form-input" id="co-location" placeholder="City, State">
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Email Address <span>*</span></label>
-          <input type="email" class="form-input" placeholder="your@email.com" id="c-email">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Phone Number</label>
-          <input type="tel" class="form-input" placeholder="+1 (000) 000-0000" id="c-phone">
-        </div>
-        <div class="form-group">
-          <label class="form-label">How did you find Kia?</label>
-          <select class="form-select" id="c-source">
-            <option value="" disabled selected>Select one</option>
-            <option>Instagram @bournekia</option>
-            <option>YouTube @kiabourne</option>
-            <option>Word of mouth / referral</option>
-            <option>Podcast</option>
-            <option>Search engine</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Which area(s) are you seeking support in? <span>*</span></label>
+          <label class="form-label">Preferred Method of Communication</label>
           <div class="checkbox-group">
-            <label class="checkbox-item">
-              <input type="checkbox" value="spiritual">
-              <span class="checkbox-label">Spiritual — Deepening my walk with Jesus &amp; Kingdom identity</span>
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" value="mental">
-              <span class="checkbox-label">Mind — Renewing my thinking &amp; breaking old patterns</span>
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" value="emotional">
-              <span class="checkbox-label">Emotional — Healing &amp; processing past experiences</span>
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" value="physical">
-              <span class="checkbox-label">Body — Fitness, nutrition &amp; physical wellness</span>
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" value="all">
-              <span class="checkbox-label">All of the above — I need holistic Kingdom support</span>
-            </label>
+            <label class="checkbox-item"><input type="radio" name="co-contact" value="email"><span class="checkbox-label">Email</span></label>
+            <label class="checkbox-item"><input type="radio" name="co-contact" value="text"><span class="checkbox-label">Text Message</span></label>
+            <label class="checkbox-item"><input type="radio" name="co-contact" value="either"><span class="checkbox-label">Either</span></label>
           </div>
         </div>
+
+        <p class="form-section-title">Getting to Know You</p>
         <div class="form-group">
-          <label class="form-label">Where are you right now? <span>*</span></label>
-          <textarea class="form-textarea" placeholder="In 2-3 sentences, share where you are in life right now — what you're carrying, what feels unclear, and what you're believing God for..." id="c-where"></textarea>
-          <p class="form-note">Be as honest as you feel comfortable being. This helps Kia understand your season.</p>
+          <label class="form-label">What inspired you to explore this cohort experience?</label>
+          <textarea class="form-textarea" id="co-inspired" placeholder="Share what's drawing you in..."></textarea>
         </div>
         <div class="form-group">
-          <label class="form-label">What are you hoping to experience through coaching?</label>
-          <textarea class="form-textarea" placeholder="Describe the shift, breakthrough, or transformation you're longing for..." id="c-hope"></textarea>
+          <label class="form-label">What area(s) are you seeking support in?</label>
+          <p class="form-note" style="margin-top:0; margin-bottom:12px;">Check all that apply.</p>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" value="stuck"><span class="checkbox-label">Feeling spiritually stuck</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="hearing"><span class="checkbox-label">Difficulty hearing God clearly</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="fear"><span class="checkbox-label">Fear or uncertainty around decisions</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="overwhelmed"><span class="checkbox-label">Feeling overwhelmed or mentally exhausted</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="slowing"><span class="checkbox-label">Difficulty slowing down or creating space with God</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="purpose"><span class="checkbox-label">Feeling disconnected from purpose</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="patterns"><span class="checkbox-label">Old reactions or patterns I want to break</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="intimacy"><span class="checkbox-label">Desire for greater intimacy with God</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="clarity"><span class="checkbox-label">Wanting more clarity and direction</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="trust"><span class="checkbox-label">Learning how to trust God more deeply</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="other"><span class="checkbox-label">Other</span></label>
+          </div>
+          <input type="text" class="form-input" id="co-other" placeholder="If other, please specify..." style="margin-top:14px;">
+        </div>
+
+        <p class="form-section-title">Cohort Commitment</p>
+        <div class="commitment-box">
+          <p>This cohort is designed to create intentional space for growth, reflection, prayer, and Kingdom transformation. Participants are encouraged to:</p>
+          <ul class="commitment-list">
+            <li>Attend weekly sessions</li>
+            <li>Complete reflection exercises</li>
+            <li>Participate respectfully in group discussion</li>
+            <li>Create intentional space for spiritual growth throughout the experience</li>
+          </ul>
         </div>
         <div class="form-group">
-          <label class="form-label">Is there anything else you'd like Kia to know?</label>
-          <textarea class="form-textarea" style="min-height:90px;" placeholder="Anything that feels important to share..." id="c-other"></textarea>
+          <label class="form-label">Are you willing to make space for this commitment over the next four weeks? <span>*</span></label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="radio" name="co-commit" value="yes"><span class="checkbox-label">Yes</span></label>
+            <label class="checkbox-item"><input type="radio" name="co-commit" value="no"><span class="checkbox-label">No</span></label>
+          </div>
         </div>
-        <button class="submit-btn" onclick="submitForm('coaching')"><span>Submit My Interest →</span></button>
-        <p class="submit-note">Kia personally reviews every submission. You'll hear back within 5–7 business days.</p>
+
+        <p class="form-section-title">Future Interest</p>
+        <div class="form-group">
+          <label class="form-label">Following this cohort, a personalized 12-Week Kingdom Coaching Journey launches in March 2027. Would you like information when enrollment opens?</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="radio" name="co-future" value="yes"><span class="checkbox-label">Yes — Add me to the interest list</span></label>
+            <label class="checkbox-item"><input type="radio" name="co-future" value="no"><span class="checkbox-label">No — Not at this time</span></label>
+          </div>
+        </div>
+
+        <button class="submit-btn" onclick="submitForm('cohort')"><span>Submit Application →</span></button>
+        <p class="submit-note">Once your application is submitted, you'll receive next steps regarding cohort availability and enrollment.</p>
       </div>
-      <div class="success-msg" id="coaching-success">
+      <div class="success-msg" id="cohort-success">
         <div class="success-icon">✦</div>
-        <div class="success-title">Thank You for Reaching Out.</div>
+        <div class="success-title">Thank You for Taking This Step.</div>
         <p class="success-body">
-          Your interest has been received. Kia reviews every submission personally and will be in touch within 5–7 business days.<br><br>
-          In the meantime, continue to walk in faith — <em>your next season is coming.</em>
+          Your application has been received. You'll receive next steps regarding cohort availability and enrollment.<br><br>
+          There is grace, direction, growth, and freedom for your <em>'Now.'</em>
         </p>
       </div>
     </div>
 
-    <!-- SPEAKING FORM -->
+    <!-- 12-WEEK JOURNEY INTEREST LIST -->
+    <div class="form-panel" id="panel-journey">
+      <div id="journey-form-wrap">
+        <div class="form-intro">
+          <h2 class="panel-title">Join the Interest List</h2>
+          <p class="panel-subtitle">Be the first to know when enrollment opens for the March 2027 Personalized 12-Week Coaching Journey.</p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Name <span>*</span></label>
+          <input type="text" class="form-input" id="j-name" placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email <span>*</span></label>
+          <input type="email" class="form-input" id="j-email" placeholder="your@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone <span style="color:#9a8a7a;">(optional)</span></label>
+          <input type="tel" class="form-input" id="j-phone" placeholder="+1 (000) 000-0000">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">What is drawing you to this journey right now?</label>
+          <textarea class="form-textarea" id="j-drawing" placeholder="Share what's stirring in you..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Which areas resonate most?</label>
+          <p class="form-note" style="margin-top:0; margin-bottom:12px;">Check all that apply.</p>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" value="development"><span class="checkbox-label">Spiritual Growth / Development</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="discernment"><span class="checkbox-label">Discernment &amp; Clarity</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="identity"><span class="checkbox-label">Identity &amp; Self-Discovery</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="detox"><span class="checkbox-label">Overwhelm / Noise Detox</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="direction"><span class="checkbox-label">Direction &amp; Purpose</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="intimacy"><span class="checkbox-label">Intimacy with God</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="patterns"><span class="checkbox-label">Breaking Old Patterns</span></label>
+            <label class="checkbox-item"><input type="checkbox" value="trust"><span class="checkbox-label">Learning to Trust God More</span></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">What feels most challenging in your season right now?</label>
+          <textarea class="form-textarea" id="j-challenge" placeholder="Share where you feel the most resistance or uncertainty..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Are you interested in:</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="radio" name="j-interest" value="cohort"><span class="checkbox-label">Gift of Now Foundational Cohort</span></label>
+            <label class="checkbox-item"><input type="radio" name="j-interest" value="journey"><span class="checkbox-label">12-Week Personalized Kingdom Coaching Journey</span></label>
+            <label class="checkbox-item"><input type="radio" name="j-interest" value="both"><span class="checkbox-label">Both</span></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Preferred Coaching Experience:</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="radio" name="j-pref" value="group"><span class="checkbox-label">Small Group</span></label>
+            <label class="checkbox-item"><input type="radio" name="j-pref" value="personal"><span class="checkbox-label">Personalized Coaching</span></label>
+            <label class="checkbox-item"><input type="radio" name="j-pref" value="either"><span class="checkbox-label">Open to Either</span></label>
+          </div>
+        </div>
+
+        <button class="submit-btn" onclick="submitForm('journey')"><span>Join the Interest List →</span></button>
+        <p class="submit-note">You'll be the first to know when March 2027 enrollment opens.</p>
+      </div>
+      <div class="success-msg" id="journey-success">
+        <div class="success-icon">✦</div>
+        <div class="success-title">You're on the List.</div>
+        <p class="success-body">
+          Thank you for your interest in the Personalized 12-Week Kingdom Coaching Journey. You'll be the first to hear when enrollment opens in <em>March 2027.</em>
+        </p>
+      </div>
+    </div>
+
+    <!-- SPEAKING REQUEST -->
     <div class="form-panel" id="panel-speaking">
       <div id="speaking-form-wrap">
+        <div class="form-intro">
+          <h2 class="panel-title">Speaking Request</h2>
+          <p class="panel-subtitle">Invite Kia to speak at your church, conference, or event.</p>
+        </div>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Your Name <span>*</span></label>
@@ -478,6 +470,7 @@ html, body {
         </p>
       </div>
     </div>
+
   </div>
 </div>
 
@@ -487,38 +480,46 @@ html, body {
 </footer>
 
 <script>
-function switchTab(tab) {
-  document.querySelectorAll('.form-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
-  event.target.classList.add('active');
-  document.getElementById('panel-' + tab).classList.add('active');
+function switchTab(tab, btn) {
+  document.querySelectorAll('.form-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelectorAll('.form-panel').forEach(function(p){ p.classList.remove('active'); });
+  if (btn) {
+    btn.classList.add('active');
+  } else {
+    var b = document.querySelector('.form-tab[data-tab="' + tab + '"]');
+    if (b) b.classList.add('active');
+  }
+  var panel = document.getElementById('panel-' + tab);
+  if (panel) panel.classList.add('active');
 }
 
 function submitForm(type) {
-  // Basic validation
-  if (type === 'coaching') {
-    const fn = document.getElementById('c-firstname').value;
-    const ln = document.getElementById('c-lastname').value;
-    const em = document.getElementById('c-email').value;
-    const wh = document.getElementById('c-where').value;
-    if (!fn || !ln || !em || !wh) {
-      alert('Please fill in all required fields (marked with ✦).');
+  var required = {
+    cohort: ['co-name', 'co-email'],
+    journey: ['j-name', 'j-email'],
+    speaking: ['s-name', 's-email', 's-topic']
+  };
+  var ids = required[type] || [];
+  for (var i = 0; i < ids.length; i++) {
+    var el = document.getElementById(ids[i]);
+    if (!el || !el.value.trim()) {
+      alert('Please fill in all required fields (marked with *).');
       return;
     }
-    document.getElementById('coaching-form-wrap').style.display = 'none';
-    document.getElementById('coaching-success').style.display = 'block';
-  } else {
-    const nm = document.getElementById('s-name').value;
-    const em = document.getElementById('s-email').value;
-    const tp = document.getElementById('s-topic').value;
-    if (!nm || !em || !tp) {
-      alert('Please fill in all required fields.');
-      return;
-    }
-    document.getElementById('speaking-form-wrap').style.display = 'none';
-    document.getElementById('speaking-success').style.display = 'block';
   }
+  var wrap = document.getElementById(type + '-form-wrap');
+  var success = document.getElementById(type + '-success');
+  if (wrap) wrap.style.display = 'none';
+  if (success) success.style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+// Open the right tab when arriving via a link like interest-form.html#cohort
+(function() {
+  var h = (window.location.hash || '').replace('#', '').toLowerCase();
+  var map = { cohort: 'cohort', interest: 'journey', journey: 'journey', 'interest-list': 'journey', speaking: 'speaking' };
+  if (map[h]) switchTab(map[h]);
+})();
 </script>
 <script>
 (function() {
@@ -528,38 +529,26 @@ function submitForm(type) {
   if (!btn || !menu) return;
 
   function openMenu() {
-    btn.classList.add('is-open');
-    menu.classList.add('is-open');
+    btn.classList.add('is-open'); menu.classList.add('is-open');
     if (overlay) overlay.classList.add('is-open');
-    btn.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
+    btn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden';
   }
   function closeMenu() {
-    btn.classList.remove('is-open');
-    menu.classList.remove('is-open');
+    btn.classList.remove('is-open'); menu.classList.remove('is-open');
     if (overlay) overlay.classList.remove('is-open');
-    btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
+    btn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
   }
-  function toggle() {
-    if (btn.classList.contains('is-open')) closeMenu(); else openMenu();
-  }
+  function toggle() { if (btn.classList.contains('is-open')) closeMenu(); else openMenu(); }
 
   btn.addEventListener('click', toggle);
   if (overlay) overlay.addEventListener('click', closeMenu);
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeMenu();
-  });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeMenu(); });
   menu.querySelectorAll('a').forEach(function(a) {
     a.addEventListener('click', function(e) {
       if (window.innerWidth > 768) return;
       var href = a.getAttribute('href') || '';
-      // Same-page anchor: close and let it scroll.
       if (href.charAt(0) === '#') { closeMenu(); return; }
-      // New tab or empty link: let the browser handle it.
       if (a.target === '_blank' || !href) { closeMenu(); return; }
-      // Link to another page: navigate explicitly so sliding the menu
-      // closed can't cancel the tap on mobile.
       e.preventDefault();
       closeMenu();
       window.location.href = href;
