@@ -586,7 +586,10 @@ footer {
   border: 1px solid rgba(184,150,12,0.3);
   padding: 12px 20px 12px 14px;
   border-radius: 2px;
+  transition: all 0.3s ease;
 }
+.audio-player.collapsed .audio-info { display: none; }
+.audio-player.collapsed { padding: 10px 12px; }
 .audio-btn {
   width: 36px;
   height: 36px;
@@ -615,6 +618,24 @@ footer {
   font-style: italic;
   color: var(--cream);
   line-height: 1;
+}
+.audio-collapse-btn {
+  background: none;
+  border: none;
+  color: rgba(250,246,239,0.4);
+  cursor: pointer;
+  font-size: 0.7rem;
+  padding: 0 0 0 4px;
+  line-height: 1;
+}
+@media (max-width: 900px) {
+  .audio-player {
+    bottom: 16px;
+    right: 16px;
+    padding: 10px 12px;
+  }
+  .audio-player .audio-info { display: none; }
+  .audio-collapse-btn { display: none; }
 }
 
 /* ─── FADE-IN ANIMATIONS ─── */
@@ -764,7 +785,7 @@ html, body {
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="announcement-bar">
-  Kingdom Living Coaching — <a href="interest-form.html">Apply for 1-on-1 Mentorship</a>
+  The Gift of Now — 4-Week Foundational Cohort — <a href="interest-form.html#cohort">Explore &amp; Apply</a>
 </div>
 
 <!-- NAV -->
@@ -773,8 +794,8 @@ html, body {
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="coaching.html">Kingdom Coaching</a></li>
-    <li><a href="interest-form.html">Work With Me</a></li>
+    <li><a href="coaching.html">Coaching</a></li>
+    <li><a href="interest-form.html">Apply</a></li>
     <li><a href="#newsletter">Connect</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
@@ -792,17 +813,16 @@ html, body {
    <div class="hero-overlay"></div>
   </div>
   <div class="hero-content-col">
-    <p class="hero-eyebrow">Kingdom Living Mentor &amp; Coach</p>
+    <p class="hero-eyebrow">The Gift of Now — 4-Week Foundational Cohort</p>
     <h1 class="hero-title">
-      Discover Yourself<br>Through Your Walk<br>With <em>Jesus Christ.</em>
+      This Is Your<br>Season to <em>Be Present</em><br>With God.
     </h1>
     <p class="hero-body">
-      Personal. Reflective. Spirit-Led.<br>
-      True transformation happens when we pursue wholeness — not just change. 
+      A 4-week small group journey to create sacred space, identify what's keeping you stuck, and begin partnering with what God is doing <em style="color:var(--gold-light);">now.</em><br><br>
       You were created for more than you are currently living.
     </p>
     <div>
-      <a class="btn-primary" href="coaching.html"><span>Explore Kingdom Coaching</span></a>
+      <a class="btn-primary" href="interest-form.html#cohort"><span>Explore The Gift of Now</span></a>
       <a class="btn-outline" href="about.html">My Story</a>
     </div>
     <div class="hero-social">
@@ -841,11 +861,11 @@ html, body {
   <div class="pillars-intro fade-in">
     <p class="section-eyebrow">The Framework</p>
     <h2 class="section-title">The Kingdom Living <em>NOW</em> Framework&trade;</h2>
-    <p style="margin-top:14px; color:var(--gold); font-size:0.72rem; letter-spacing:0.28em; text-transform:uppercase; font-weight:500;">
-      Presence · Awareness · Clarity · Engagement
-    </p>
     <p style="margin-top:18px; color:#6b5d4f; font-size:0.95rem; line-height:1.8;">
-      Lasting transformation requires more than information. It requires patience, wisdom, compassion, and practical support. Learning to live in the NOW means cultivating Presence, growing Awareness, gaining Clarity, and taking faithful Engagement (P.A.C.E.) with what God is doing in your life today.
+      Lasting transformation requires more than information. It requires patience, wisdom, compassion, and practical support. Learning to live in the NOW means cultivating Presence, growing Awareness, gaining Clarity, and taking faithful Engagement with what God is doing in your life today.
+    </p>
+    <p style="margin-top:12px; color:var(--gold); font-size:0.68rem; letter-spacing:0.25em; text-transform:uppercase; font-weight:500;">
+      P.A.C.E. &mdash; Presence &middot; Awareness &middot; Clarity &middot; Engagement
     </p>
   </div>
   <div class="pillars-grid">
@@ -875,13 +895,12 @@ html, body {
       <h3 class="pillar-title">Engagement</h3>
       <p class="pillar-body">Take your next faithful step with confidence and purpose.</p>
     </div>
-    <div class="pillar-card fade-in" style="background:var(--charcoal); grid-column: 2 / span 2;">
-      <p class="section-eyebrow" style="color:var(--gold-light);">The Word Up! Way</p>
-      <h3 style="font-family:var(--font-display); font-size:1.6rem; font-weight:300; color:var(--cream); margin-bottom:14px;">Kingdom Living &amp; Lifestyle</h3>
-      <p style="color:rgba(250,246,239,0.65); font-size:0.93rem; line-height:1.8; margin-bottom:28px;">
-        A space inspired by God's wisdom and His way of doing life. Because when you surrender your plans, your timeline, and your understanding — and choose His way — everything changes.
+    <div class="pillar-card fade-in" style="background:var(--beige); grid-column: 2 / span 2;">
+      <p class="section-eyebrow">Kingdom Living &amp; Lifestyle</p>
+      <h3 style="font-family:var(--font-display); font-size:1.4rem; font-weight:300; color:var(--charcoal); margin-bottom:12px;">The Word Up! Way</h3>
+      <p style="color:#6b5d4f; font-size:0.9rem; line-height:1.8;">
+        A space inspired by God's wisdom and His way of doing life — teaching, devotionals, and Kingdom insights to support your walk.
       </p>
-      <a class="btn-primary" href="coaching.html"><span>Learn About Coaching</span></a>
     </div>
   </div>
 </section>
@@ -900,11 +919,22 @@ html, body {
     <p class="section-eyebrow">Work With Kia</p>
     <h2 class="section-title">Ready to Step Into<br>What <em>God Has for You?</em></h2>
     <ul class="offer-list">
-      <li>&ldquo;The Gift of Now&rdquo; — 4-Week Foundational Cohort</li>
-      <li>&ldquo;From Stuck to Transformed&rdquo; — 12-Week Kingdom Living Coaching Journey</li>
-      <li>Speaking Requests</li>
+      <li style="flex-direction:column; align-items:flex-start; gap:6px; padding:20px 0; border-bottom:1px solid rgba(184,150,12,0.25);">
+        <span style="font-size:0.62rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); font-weight:600;">Current Offer</span>
+        <span style="font-family:var(--font-display); font-size:1.25rem; font-weight:400; color:var(--charcoal);">&ldquo;The Gift of Now&rdquo; &mdash; 4-Week Foundational Cohort</span>
+        <span style="font-size:0.88rem; color:#6b5d4f; line-height:1.6;">A small group journey to create sacred space and partner with what God is doing now.</span>
+      </li>
+      <li style="flex-direction:column; align-items:flex-start; gap:4px; padding:16px 0; border-bottom:1px solid rgba(184,150,12,0.12); opacity:0.75;">
+        <span style="font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase; color:#9a8a7a; font-weight:600;">Future Pathway &mdash; March 2027</span>
+        <span style="font-size:0.95rem; color:var(--charcoal);">&ldquo;From Stuck to Transformed&rdquo; &mdash; 12-Week Coaching Journey</span>
+      </li>
+      <li style="flex-direction:column; align-items:flex-start; gap:4px; padding:16px 0; opacity:0.75;">
+        <span style="font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase; color:#9a8a7a; font-weight:600;">Separate Inquiry</span>
+        <span style="font-size:0.95rem; color:var(--charcoal);">Speaking Requests</span>
+      </li>
     </ul>
-    <a class="btn-primary" href="interest-form.html"><span>Express Your Interest</span></a>
+    <a class="btn-primary" href="interest-form.html#cohort"><span>Begin With The Gift of Now</span></a>
+    <p style="font-size:0.78rem; color:#9a8a7a; margin-top:14px;">Interested in another path? <a href="interest-form.html" style="color:var(--gold); text-decoration:none;">View all options &rarr;</a></p>
   </div>
   <div class="coaching-image">
     <img src="/images/9.jpg" alt="Kia Bourne">
@@ -933,8 +963,9 @@ html, body {
     <ul class="footer-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="coaching.html">Kingdom Coaching</a></li>
-      <li><a href="interest-form.html">Work With Me</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="interest-form.html#cohort">The Gift of Now</a></li>
+      <li><a href="interest-form.html#speaking">Speaking Request</a></li>
     </ul>
     <div>
       <div class="footer-social">
@@ -954,10 +985,11 @@ html, body {
     <svg id="playIcon" width="16" height="16" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
     <svg id="pauseIcon" width="16" height="16" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
   </button>
-  <div>
+  <div class="audio-info">
     <div class="audio-label">Now Playing</div>
     <div class="audio-title">Instrumental Worship</div>
   </div>
+  <button class="audio-collapse-btn" onclick="toggleCollapse()" title="Collapse player">&#8212;</button>
 </div>
 
 <!-- NOTE: Replace the src below with your actual audio file URL -->
@@ -986,6 +1018,11 @@ function toggleAudio() {
     pause.style.display = '';
   }
   playing = !playing;
+}
+
+function toggleCollapse() {
+  const player = document.getElementById('audioPlayer');
+  player.classList.toggle('collapsed');
 }
 
 // ─── Fade-in on Scroll ───

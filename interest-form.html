@@ -54,6 +54,8 @@ nav {
 .form-tabs { display:flex; flex-wrap:wrap; gap:0; margin-bottom:40px; border-bottom:1px solid rgba(184,150,12,0.2); }
 .form-tab { flex:1; min-width:120px; padding:14px 10px; text-align:center; cursor:pointer; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; font-weight:600; color:#8a7a6a; border-bottom:2px solid transparent; transition:all 0.3s; background:none; border-top:none; border-left:none; border-right:none; }
 .form-tab.active { color:var(--gold); border-bottom-color:var(--gold); }
+.form-tab:first-child.active { background:rgba(184,150,12,0.05); }
+.form-tab:first-child { font-weight:700; }
 
 /* PANEL INTRO */
 .form-intro { margin-bottom:32px; }
@@ -169,8 +171,8 @@ html, body { overflow-x: hidden; max-width: 100%; width: 100%; }
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="coaching.html">Kingdom Coaching</a></li>
-    <li><a href="interest-form.html" class="active">Work With Me</a></li>
+    <li><a href="coaching.html">Coaching</a></li>
+    <li><a href="interest-form.html" class="active">Apply</a></li>
   </ul>
   <button class="nav-hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
     <span></span>
@@ -199,16 +201,16 @@ html, body { overflow-x: hidden; max-width: 100%; width: 100%; }
   <div class="form-area">
     <div class="form-header">
       <p class="form-eyebrow">Step Into Your Next Season</p>
-      <h1 class="form-title">Express Your <em>Interest</em></h1>
+      <h1 class="form-title"><em>The Gift of Now</em> — Begin Here</h1>
       <p class="form-subtitle">
-        Choose the path that best fits where you are. Every submission is read personally. Getting to know you matters.
+        The Foundational Cohort is the current open path. Select a tab below to apply for the cohort, join the interest list for the March 2027 journey, or submit a speaking request.
       </p>
     </div>
 
     <!-- TABS -->
     <div class="form-tabs">
-      <button class="form-tab active" data-tab="cohort" onclick="switchTab('cohort', this)">Foundational Cohort</button>
-      <button class="form-tab" data-tab="journey" onclick="switchTab('journey', this)">12-Week Journey</button>
+      <button class="form-tab active" data-tab="cohort" onclick="switchTab('cohort', this)">&#9679; Current: The Gift of Now</button>
+      <button class="form-tab" data-tab="journey" onclick="switchTab('journey', this)">Future: March 2027</button>
       <button class="form-tab" data-tab="speaking" onclick="switchTab('speaking', this)">Speaking Request</button>
     </div>
 
@@ -303,7 +305,21 @@ html, body { overflow-x: hidden; max-width: 100%; width: 100%; }
           </div>
         </div>
 
-        <button class="submit-btn" onclick="submitForm('cohort')"><span>Submit Application →</span></button>
+        <p class="form-section-title">How It Works</p>
+        <div class="commitment-box" style="background:rgba(184,150,12,0.04); border-left:3px solid var(--gold-light); margin-bottom:32px;">
+          <p style="font-size:0.88rem; color:var(--charcoal); font-weight:500; margin-bottom:16px; letter-spacing:0.05em;">What to Expect</p>
+          <ul class="commitment-list">
+            <li><strong>Duration:</strong> 4 weeks</li>
+            <li><strong>Format:</strong> Small group — details provided upon enrollment</li>
+            <li><strong>Investment:</strong> $147</li>
+            <li><strong>After You Apply:</strong> You'll receive next steps regarding cohort availability and enrollment confirmation</li>
+          </ul>
+          <p style="font-size:0.82rem; color:#9a8a7a; margin-top:16px; font-style:italic;">
+            Start date, session rhythm, session length, platform, and application deadline will be shared with accepted participants. Questions? Reach out before applying.
+          </p>
+        </div>
+
+        <button class="submit-btn" onclick="submitForm('cohort')"><span>Express Interest in The Gift of Now →</span></button>
         <p class="submit-note">Once your application is submitted, you'll receive next steps regarding cohort availability and enrollment.</p>
       </div>
       <div class="success-msg" id="cohort-success">
@@ -320,8 +336,12 @@ html, body { overflow-x: hidden; max-width: 100%; width: 100%; }
     <div class="form-panel" id="panel-journey">
       <div id="journey-form-wrap">
         <div class="form-intro">
+          <p style="font-size:0.62rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:12px;">Future Pathway — Opening March 2027</p>
           <h2 class="panel-title">Join the Interest List</h2>
-          <p class="panel-subtitle">Be the first to know when enrollment opens for the March 2027 Personalized 12-Week Coaching Journey.</p>
+          <p class="panel-subtitle">Be the first to know when enrollment opens for the Personalized 12-Week Kingdom Coaching Journey.</p>
+          <p class="panel-text" style="background:rgba(184,150,12,0.06); border-left:3px solid var(--gold); padding:14px 18px; margin-top:16px;">
+            This deeper journey is not yet open for enrollment. If you're interested in the current season, the <strong>Gift of Now Foundational Cohort</strong> is the right first step.
+          </p>
         </div>
 
         <div class="form-group">
@@ -398,6 +418,7 @@ html, body { overflow-x: hidden; max-width: 100%; width: 100%; }
         <div class="form-intro">
           <h2 class="panel-title">Speaking Request</h2>
           <p class="panel-subtitle">Invite Kia to speak at your church, conference, or event.</p>
+          <p class="panel-text">This is a separate inquiry path for event organizers. If you're looking for coaching or personal support, please use the <button onclick="switchTab('cohort', null)" style="background:none; border:none; color:var(--gold); cursor:pointer; font-size:inherit; text-decoration:underline; padding:0;">Gift of Now tab</button>.</p>
         </div>
         <div class="form-row">
           <div class="form-group">
